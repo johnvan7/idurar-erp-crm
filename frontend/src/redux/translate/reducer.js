@@ -33,7 +33,7 @@ const translateReducer = (state = INITIAL_STATE, action) => {
 
     case actionTypes.REQUEST_SUCCESS:
       return {
-        result: payload,
+        result: { ...state.result, ...payload },
         langCode: langCode.toLowerCase(),
         langDirection: isRtl ? 'rtl' : 'ltr',
         isLoading: false,
